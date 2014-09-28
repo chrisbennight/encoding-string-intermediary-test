@@ -4,7 +4,7 @@ encoding-string-intermediary-test
 Testing encoding size when forced to go through a UTF string  (i.e. bytes -> UTF-8 String -> UTF-8 bytes )
 
 Output:
-
+```
 long direct:                800
 UTF-8 bytes of .toString(): 1900
 UTF-8 bytes of Base:16:     1600
@@ -120,4 +120,4 @@ UTF-8 bytes of Base:125:     1000
 UTF-8 bytes of Base:126:     1000
 UTF-8 bytes of Base:127:     1000
 UTF-8 bytes of Base:128:     900
-
+```
