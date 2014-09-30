@@ -2,7 +2,10 @@ package com.fecher;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.time.StopWatch;
@@ -52,12 +55,17 @@ public class EncodingTest
 						64)),
 		new Stats(
 				new HBase64Encoding()),
+		new Stats(
+				new Base91()),
+		new Stats(
+				new Base128Encoding()),
 	};
 
 	private static class Stats
 	{
-		private long totalBytes = 0;
-		private long totalEncodings = 0;
+		private final Map<Integer, Long> totalBytes = new HashMap<Integer, Long>();
+		// private long totalEncodings = 0;
+		private final Map<Integer, Long> totalEncodings = new HashMap<Integer, Long>();
 		private final BinaryEncoding encoding;
 		private long totalSuccesses = 0;
 		private final StopWatch encodeTimer = new StopWatch();
@@ -79,21 +87,33 @@ public class EncodingTest
 			str.append(
 					"Encoding: ").append(
 					encoding.getEncodingName()).append(
-					'\n').append(
-					"Total Encodings: ").append(
-					totalEncodings).append(
-					'\n').append(
-					"Total Bytes: ").append(
-					totalBytes).append(
-					'\n').append(
-					"Average Bytes: ").append(
-					(double) totalBytes / (double) totalEncodings).append(
-					'\n').append(
-					"Successes: ").append(
+					'\n');
+			long total = 0;
+			for (final Entry<Integer, Long> e : totalEncodings.entrySet()) {
+				str.append(
+						// "Total Encodings (").append(
+						// e.getKey()).append(
+						// " original bytes): ").append(
+						// e.getValue()).append(
+						// '\n').append(
+						// "Total Encoded Bytes (").append(
+						// e.getKey()).append(
+						// " original bytes): ").append(
+						// totalBytes.get(e.getKey())).append(
+						// '\n').append(
+						"Average Encoded Bytes (").append(
+						e.getKey()).append(
+						" original bytes): ").append(
+						(double) totalBytes.get(e.getKey()) / (double) e.getValue()).append(
+						'\n');
+				total += e.getValue();
+			}
+			str.append(
+					"Total Successes: ").append(
 					totalSuccesses).append(
 					'\n').append(
 					"Success Rate: ").append(
-					(double) totalSuccesses / (double) totalEncodings).append(
+					(double) totalSuccesses / (double) total).append(
 					'\n').append(
 					"Time in encode: ").append(
 					encodeTimer.toString()).append(
@@ -113,15 +133,26 @@ public class EncodingTest
 
 	@Test
 	public void test() {
-		final Byte[] bytesArray = new Byte[((Byte.MAX_VALUE - Byte.MIN_VALUE) + 1)/8];
-		int i = 0;
-		for (int b = Byte.MIN_VALUE; b <= Byte.MAX_VALUE; b+=8) {
-			bytesArray[i++] = (byte) b;
-		}
 
-		final ICombinatoricsVector<Byte> bytesVector = Factory.createVector(bytesArray);
+		for (int k = 2; k <= 8; k++) {
+			for (final Stats stats : TEST_ENCODING) {
+				stats.totalBytes.put(
+						k,
+						0L);
+				stats.totalEncodings.put(
+						k,
+						0L);
+			}
+			final int divisor = (int) Math.pow(
+					2,
+					k - 1);
+			final Byte[] bytesArray = new Byte[((Byte.MAX_VALUE - Byte.MIN_VALUE) + 1) / divisor];
+			int i = 0;
+			for (int b = Byte.MIN_VALUE; b <= Byte.MAX_VALUE; b += divisor) {
+				bytesArray[i++] = (byte) b;
+			}
 
-		for (int k = 4; k <=4; k++) {
+			final ICombinatoricsVector<Byte> bytesVector = Factory.createVector(bytesArray);
 			final Iterator<ICombinatoricsVector<Byte>> it = Factory.createPermutationWithRepetitionGenerator(
 					bytesVector,
 					k).iterator();
@@ -147,8 +178,12 @@ public class EncodingTest
 							original)) {
 						stats.totalSuccesses++;
 					}
-					stats.totalBytes += utf8Encoding.length;
-					stats.totalEncodings++;
+					stats.totalBytes.put(
+							k,
+							stats.totalBytes.get(k) + utf8Encoding.length);
+					stats.totalEncodings.put(
+							k,
+							stats.totalEncodings.get(k) + 1);
 				}
 			}
 		}

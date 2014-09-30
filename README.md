@@ -5,119 +5,212 @@ Testing encoding size when forced to go through a UTF string  (i.e. bytes -> UTF
 
 Output:
 ```
-long direct:                800
-UTF-8 bytes of .toString(): 1900
-UTF-8 bytes of Base:16:     1600
-UTF-8 bytes of Base:17:     1600
-UTF-8 bytes of Base:18:     1600
-UTF-8 bytes of Base:19:     1500
-UTF-8 bytes of Base:20:     1500
-UTF-8 bytes of Base:21:     1500
-UTF-8 bytes of Base:22:     1500
-UTF-8 bytes of Base:23:     1400
-UTF-8 bytes of Base:24:     1400
-UTF-8 bytes of Base:25:     1400
-UTF-8 bytes of Base:26:     1400
-UTF-8 bytes of Base:27:     1400
-UTF-8 bytes of Base:28:     1400
-UTF-8 bytes of Base:29:     1300
-UTF-8 bytes of Base:30:     1300
-UTF-8 bytes of Base:31:     1300
-UTF-8 bytes of Base:32:     1300
-UTF-8 bytes of Base:33:     1300
-UTF-8 bytes of Base:34:     1300
-UTF-8 bytes of Base:35:     1300
-UTF-8 bytes of Base:36:     1300
-UTF-8 bytes of Base:37:     1300
-UTF-8 bytes of Base:38:     1300
-UTF-8 bytes of Base:39:     1200
-UTF-8 bytes of Base:40:     1200
-UTF-8 bytes of Base:41:     1200
-UTF-8 bytes of Base:42:     1200
-UTF-8 bytes of Base:43:     1200
-UTF-8 bytes of Base:44:     1200
-UTF-8 bytes of Base:45:     1200
-UTF-8 bytes of Base:46:     1200
-UTF-8 bytes of Base:47:     1200
-UTF-8 bytes of Base:48:     1200
-UTF-8 bytes of Base:49:     1200
-UTF-8 bytes of Base:50:     1200
-UTF-8 bytes of Base:51:     1200
-UTF-8 bytes of Base:52:     1200
-UTF-8 bytes of Base:53:     1100
-UTF-8 bytes of Base:54:     1100
-UTF-8 bytes of Base:55:     1100
-UTF-8 bytes of Base:56:     1100
-UTF-8 bytes of Base:57:     1100
-UTF-8 bytes of Base:58:     1100
-UTF-8 bytes of Base:59:     1100
-UTF-8 bytes of Base:60:     1100
-UTF-8 bytes of Base:61:     1100
-UTF-8 bytes of Base:62:     1100
-UTF-8 bytes of Base:63:     1100
-UTF-8 bytes of Base:64:     1100
-UTF-8 bytes of Base:65:     1100
-UTF-8 bytes of Base:66:     1100
-UTF-8 bytes of Base:67:     1100
-UTF-8 bytes of Base:68:     1100
-UTF-8 bytes of Base:69:     1100
-UTF-8 bytes of Base:70:     1100
-UTF-8 bytes of Base:71:     1100
-UTF-8 bytes of Base:72:     1100
-UTF-8 bytes of Base:73:     1100
-UTF-8 bytes of Base:74:     1100
-UTF-8 bytes of Base:75:     1100
-UTF-8 bytes of Base:76:     1100
-UTF-8 bytes of Base:77:     1100
-UTF-8 bytes of Base:78:     1100
-UTF-8 bytes of Base:79:     1000
-UTF-8 bytes of Base:80:     1000
-UTF-8 bytes of Base:81:     1000
-UTF-8 bytes of Base:82:     1000
-UTF-8 bytes of Base:83:     1000
-UTF-8 bytes of Base:84:     1000
-UTF-8 bytes of Base:85:     1000
-UTF-8 bytes of Base:86:     1000
-UTF-8 bytes of Base:87:     1000
-UTF-8 bytes of Base:88:     1000
-UTF-8 bytes of Base:89:     1000
-UTF-8 bytes of Base:90:     1000
-UTF-8 bytes of Base:91:     1000
-UTF-8 bytes of Base:92:     1000
-UTF-8 bytes of Base:93:     1000
-UTF-8 bytes of Base:94:     1000
-UTF-8 bytes of Base:95:     1000
-UTF-8 bytes of Base:96:     1000
-UTF-8 bytes of Base:97:     1000
-UTF-8 bytes of Base:98:     1000
-UTF-8 bytes of Base:99:     1000
-UTF-8 bytes of Base:100:     1000
-UTF-8 bytes of Base:101:     1000
-UTF-8 bytes of Base:102:     1000
-UTF-8 bytes of Base:103:     1000
-UTF-8 bytes of Base:104:     1000
-UTF-8 bytes of Base:105:     1000
-UTF-8 bytes of Base:106:     1000
-UTF-8 bytes of Base:107:     1000
-UTF-8 bytes of Base:108:     1000
-UTF-8 bytes of Base:109:     1000
-UTF-8 bytes of Base:110:     1000
-UTF-8 bytes of Base:111:     1000
-UTF-8 bytes of Base:112:     1000
-UTF-8 bytes of Base:113:     1000
-UTF-8 bytes of Base:114:     1000
-UTF-8 bytes of Base:115:     1000
-UTF-8 bytes of Base:116:     1000
-UTF-8 bytes of Base:117:     1000
-UTF-8 bytes of Base:118:     1000
-UTF-8 bytes of Base:119:     1000
-UTF-8 bytes of Base:120:     1000
-UTF-8 bytes of Base:121:     1000
-UTF-8 bytes of Base:122:     1000
-UTF-8 bytes of Base:123:     1000
-UTF-8 bytes of Base:124:     1000
-UTF-8 bytes of Base:125:     1000
-UTF-8 bytes of Base:126:     1000
-UTF-8 bytes of Base:127:     1000
-UTF-8 bytes of Base:128:     900
+Encoding: Bennight Base 2
+Average Encoded Bytes (2 original bytes): 17.0
+Average Encoded Bytes (3 original bytes): 25.0
+Average Encoded Bytes (4 original bytes): 33.0
+Average Encoded Bytes (5 original bytes): 41.0
+Average Encoded Bytes (6 original bytes): 49.0
+Average Encoded Bytes (7 original bytes): 57.0
+Average Encoded Bytes (8 original bytes): 65.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:08:44.604
+Time in decode: 0:23:39.100
+***************************
+
+
+Encoding: Bennight Base 4
+Average Encoded Bytes (2 original bytes): 9.0
+Average Encoded Bytes (3 original bytes): 13.0
+Average Encoded Bytes (4 original bytes): 17.0
+Average Encoded Bytes (5 original bytes): 21.0
+Average Encoded Bytes (6 original bytes): 25.0
+Average Encoded Bytes (7 original bytes): 29.0
+Average Encoded Bytes (8 original bytes): 33.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:04:31.915
+Time in decode: 0:10:23.793
+***************************
+
+
+Encoding: Bennight Base 8
+Average Encoded Bytes (2 original bytes): 6.0
+Average Encoded Bytes (3 original bytes): 9.0
+Average Encoded Bytes (4 original bytes): 11.0
+Average Encoded Bytes (5 original bytes): 14.0
+Average Encoded Bytes (6 original bytes): 17.0
+Average Encoded Bytes (7 original bytes): 19.0
+Average Encoded Bytes (8 original bytes): 22.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:03:05.284
+Time in decode: 0:06:25.902
+***************************
+
+
+Encoding: Bennight Base 16
+Average Encoded Bytes (2 original bytes): 5.0
+Average Encoded Bytes (3 original bytes): 7.0
+Average Encoded Bytes (4 original bytes): 9.0
+Average Encoded Bytes (5 original bytes): 11.0
+Average Encoded Bytes (6 original bytes): 13.0
+Average Encoded Bytes (7 original bytes): 15.0
+Average Encoded Bytes (8 original bytes): 17.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:02:28.658
+Time in decode: 0:04:47.536
+***************************
+
+
+Encoding: Bennight Base 32
+Average Encoded Bytes (2 original bytes): 4.0
+Average Encoded Bytes (3 original bytes): 5.0
+Average Encoded Bytes (4 original bytes): 7.0
+Average Encoded Bytes (5 original bytes): 9.0
+Average Encoded Bytes (6 original bytes): 10.0
+Average Encoded Bytes (7 original bytes): 12.0
+Average Encoded Bytes (8 original bytes): 13.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:02:00.650
+Time in decode: 0:03:49.458
+***************************
+
+
+Encoding: Bennight Base 64
+Average Encoded Bytes (2 original bytes): 3.0
+Average Encoded Bytes (3 original bytes): 5.0
+Average Encoded Bytes (4 original bytes): 6.0
+Average Encoded Bytes (5 original bytes): 7.0
+Average Encoded Bytes (6 original bytes): 9.0
+Average Encoded Bytes (7 original bytes): 10.0
+Average Encoded Bytes (8 original bytes): 11.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:01:42.823
+Time in decode: 0:03:08.459
+***************************
+
+
+Encoding: Bennight Base 85
+Average Encoded Bytes (2 original bytes): 3.0
+Average Encoded Bytes (3 original bytes): 4.0
+Average Encoded Bytes (4 original bytes): 5.9614105224609375
+Average Encoded Bytes (5 original bytes): 7.0
+Average Encoded Bytes (6 original bytes): 8.0
+Average Encoded Bytes (7 original bytes): 9.0
+Average Encoded Bytes (8 original bytes): 10.75
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:01:39.455
+Time in decode: 0:03:08.377
+***************************
+
+
+Encoding: Bennight Base 128
+Average Encoded Bytes (2 original bytes): 3.0
+Average Encoded Bytes (3 original bytes): 4.0
+Average Encoded Bytes (4 original bytes): 5.0
+Average Encoded Bytes (5 original bytes): 6.0
+Average Encoded Bytes (6 original bytes): 7.0
+Average Encoded Bytes (7 original bytes): 9.0
+Average Encoded Bytes (8 original bytes): 10.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:01:27.609
+Time in decode: 0:02:32.070
+***************************
+
+
+Encoding: Guava Base 16
+Average Encoded Bytes (2 original bytes): 4.0
+Average Encoded Bytes (3 original bytes): 6.0
+Average Encoded Bytes (4 original bytes): 8.0
+Average Encoded Bytes (5 original bytes): 10.0
+Average Encoded Bytes (6 original bytes): 12.0
+Average Encoded Bytes (7 original bytes): 14.0
+Average Encoded Bytes (8 original bytes): 16.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:00:28.147
+Time in decode: 0:00:38.829
+***************************
+
+
+Encoding: Guava Base 32
+Average Encoded Bytes (2 original bytes): 8.0
+Average Encoded Bytes (3 original bytes): 8.0
+Average Encoded Bytes (4 original bytes): 8.0
+Average Encoded Bytes (5 original bytes): 8.0
+Average Encoded Bytes (6 original bytes): 16.0
+Average Encoded Bytes (7 original bytes): 16.0
+Average Encoded Bytes (8 original bytes): 16.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:00:23.337
+Time in decode: 0:00:55.243
+***************************
+
+
+Encoding: Guava Base 64
+Average Encoded Bytes (2 original bytes): 4.0
+Average Encoded Bytes (3 original bytes): 4.0
+Average Encoded Bytes (4 original bytes): 8.0
+Average Encoded Bytes (5 original bytes): 8.0
+Average Encoded Bytes (6 original bytes): 8.0
+Average Encoded Bytes (7 original bytes): 12.0
+Average Encoded Bytes (8 original bytes): 12.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:00:21.299
+Time in decode: 0:00:47.335
+***************************
+
+
+Encoding: HBase Base 64
+Average Encoded Bytes (2 original bytes): 4.0
+Average Encoded Bytes (3 original bytes): 4.0
+Average Encoded Bytes (4 original bytes): 8.0
+Average Encoded Bytes (5 original bytes): 8.0
+Average Encoded Bytes (6 original bytes): 8.0
+Average Encoded Bytes (7 original bytes): 12.0
+Average Encoded Bytes (8 original bytes): 12.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:01:04.723
+Time in decode: 0:05:30.249
+***************************
+
+
+Encoding: Base 91
+Average Encoded Bytes (2 original bytes): 3.0
+Average Encoded Bytes (3 original bytes): 4.0
+Average Encoded Bytes (4 original bytes): 5.0
+Average Encoded Bytes (5 original bytes): 6.7965087890625
+Average Encoded Bytes (6 original bytes): 7.97198486328125
+Average Encoded Bytes (7 original bytes): 8.99853515625
+Average Encoded Bytes (8 original bytes): 10.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:00:56.579
+Time in decode: 0:00:59.654
+***************************
+
+
+Encoding: Base 128
+Average Encoded Bytes (2 original bytes): 3.0
+Average Encoded Bytes (3 original bytes): 4.0
+Average Encoded Bytes (4 original bytes): 5.0
+Average Encoded Bytes (5 original bytes): 6.0
+Average Encoded Bytes (6 original bytes): 7.0
+Average Encoded Bytes (7 original bytes): 8.0
+Average Encoded Bytes (8 original bytes): 10.0
+Total Successes: 71434240
+Success Rate: 1.0
+Time in encode: 0:00:35.485
+Time in decode: 0:00:36.025
+***************************
 ```

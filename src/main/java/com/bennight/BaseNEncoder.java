@@ -4,10 +4,12 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.ArrayUtils;
+
 import com.fecher.BinaryEncoding;
 
 public class BaseNEncoder implements
-BinaryEncoding
+		BinaryEncoding
 {
 
 	private final char[] _dictionary;
@@ -23,10 +25,10 @@ BinaryEncoding
 
 	public BaseNEncoder(
 			final int base ) {
-//		if (base > 128) {
-//			throw new Exception(
-//					"Only handles mapping to ASCII char set, base must be <= 128");
-//		}
+		// if (base > 128) {
+		// throw new Exception(
+		// "Only handles mapping to ASCII char set, base must be <= 128");
+		// }
 		_dictionary = new char[base];
 		for (int x = 0; x < base; x++) {
 			_dictionary[x] = (char) x;
@@ -51,8 +53,8 @@ BinaryEncoding
 			final BigInteger value ) {
 		final StringBuilder s = new StringBuilder();
 		BigInteger[] parts = {
-				value,
-				BigInteger.ZERO
+			value,
+			BigInteger.ZERO
 		};
 		while (parts[0].compareTo(_base) >= 0) {
 			parts = parts[0].divideAndRemainder(_base);
@@ -70,21 +72,30 @@ BinaryEncoding
 			final BigInteger digit = BigInteger.valueOf(_reverseDictionary.get(encoded.charAt(i)));
 			result = result.add(digit.multiply(_base.pow((len - i) - 1)));
 		}
-		return result;
+		return new BigInteger(
+				result.toByteArray());
 	}
 
 	@Override
 	public String encode(
 			final byte[] binary ) {
-		return encode(new BigInteger(1,
-				binary));
+		return encode(new BigInteger(
+				ArrayUtils.addAll(
+						new byte[] {
+							1
+						},
+						binary)));
 	}
 
 	@Override
 	public byte[] decode(
 			final String str ) {
-		return decodeInt(
+		final byte[] paddedArray = decodeInt(
 				str).toByteArray();
+		return ArrayUtils.subarray(
+				paddedArray,
+				1,
+				paddedArray.length);
 	}
 
 	@Override
